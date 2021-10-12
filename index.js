@@ -1,14 +1,15 @@
-//»ñÈ¡urlµÄ²ÎÊýÐÅÏ¢
+//èŽ·å–urlçš„å‚æ•°ä¿¡æ¯
 function getQueryString() {
 	var str = location.href;
 	var num = str.indexOf("/p/");
 	str = str.substr(num + 3);
-	return str;
+	if (parseInt(str) > 500000000) {
+		window.location.href = "./p/418971438.html"; //ä¼˜è±†äº‘
+	} else {
+		window.location.href = "./p/418962396.html"; //ä¸‰ä¸°äº‘
+	}
 }
-//Ê¹ÓÃ·½·¨£º
-var num = parseInt(getQueryString());
-if (parseInt(num) > 500000000) {
-	window.location.href = "./p/418971438.html";//ÓÅ¶¹ÔÆ
-} else {
-	window.location.href = "./p/418962396.html";//Èý·áÔÆ
-}
+
+//ä½¿ç”¨æ–¹æ³•ï¼š
+var Request = new getQueryString();
+var seq_uuid = Request.seq_uuid;
