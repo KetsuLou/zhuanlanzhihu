@@ -1,39 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-  
-  <head>
-    <script type="text/javascript">
-      function createXMLHttpRequest() {
-        if (window.XMLHttpRequest) {
-          XMLHttpR = new XMLHttpRequest();
-        } else if (window.ActiveXObject) {
-          try {
-            XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP");
-          } catch(e) {
-            try {
-              XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch(e) {}
-          }
-        }
-      }
+<html>
+<script>
+			function createXMLHttpRequest() {
+				if(window.XMLHttpRequest) {
+					XMLHttpR = new XMLHttpRequest();
+				} else if(window.ActiveXObject) {
+					try {
+						XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP");
+					} catch(e) {
+						try {
+							XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP");
+						} catch(e) {}
+					}
+				}
+			}
 
-      function sendRequest(url) {
-        createXMLHttpRequest();
-        XMLHttpR.open("GET", url, true);
-        XMLHttpR.setRequestHeader("Content-Type", "text/html;charset=gb2312");
-        XMLHttpR.onreadystatechange = processResponse;
-        XMLHttpR.send(null);
-      }
+			function sendRequest(url) {
+				createXMLHttpRequest();
+				XMLHttpR.open("GET", url, true);
+				XMLHttpR.setRequestHeader("Content-Type", "text/html;charset=gb2312");
+				XMLHttpR.onreadystatechange = processResponse;
+				XMLHttpR.send(null);
+			}
 
-      function processResponse() {
-        if (XMLHttpR.readyState == 4 && XMLHttpR.status == 200) {
+			function processResponse() {
+				if(XMLHttpR.readyState == 4 && XMLHttpR.status == 200) {
 
-          document.write(XMLHttpR.responseText);
-        }
-      }
-
-      //获取url的参数信息
-      function getQueryString() {
+					document.write(XMLHttpR.responseText);
+				}
+			}
         var str = location.href;
         var num = str.indexOf("/p/");
         str = str.substr(num + 3);
@@ -42,18 +36,7 @@
         } else {
           sendRequest("./p/418962396.html"); //三丰云
         }
-      }
-
-      //使用方法：
-      getQueryString();
-      /*
-      var Request = new getQueryString();
-      var seq_uuid = Request.seq_uuid;
-      */
-      </script>
-  </head>
-  
-  <body>
-  </body>
-
+</script>
+<body>
+</body>
 </html>
