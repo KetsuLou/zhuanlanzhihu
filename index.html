@@ -3,22 +3,51 @@
   
   <head>
     <script type="text/javascript">
+	function createXMLHttpRequest() {
+        if (window.XMLHttpRequest) {
+          XMLHttpR = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+          try {
+            XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP");
+          } catch(e) {
+            try {
+              XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch(e) {}
+          }
+        }
+      }
+
+      function sendRequest(url) {
+        createXMLHttpRequest();
+        XMLHttpR.open("GET", url, true);
+        XMLHttpR.setRequestHeader("Content-Type", "text/html;charset=gb2312");
+        XMLHttpR.onreadystatechange = processResponse;
+        XMLHttpR.send(null);
+      }
+
+      function processResponse() {
+        if (XMLHttpR.readyState == 4 && XMLHttpR.status == 200) {
+
+          document.write(XMLHttpR.responseText);
+        }
+      }
+
       //获取url的参数信息
       function getQueryString() {
         var str = location.href;
         var num = str.indexOf("/p/");
         str = str.substr(num + 3);
         if (parseInt(str) > 500000000) {
-          location.href = "http://" + window.location.host + "/p/418971438.html"; //优豆云
+          sendRequest("./p/418971438.html"); //优豆云
         } else {
-          location.href = "http://" + window.location.host + "/p/418962396.html"; //三丰云
+          sendRequest("./p/418962396.html"); //三丰云
         }
       }
 
       //使用方法：
       var Request = new getQueryString();
       var seq_uuid = Request.seq_uuid;
-    </script>
+	  </script>
   </head>
   
   <body>
