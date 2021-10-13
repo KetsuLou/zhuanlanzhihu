@@ -1,42 +1,44 @@
 <html>
-<script>
-			function createXMLHttpRequest() {
-				if(window.XMLHttpRequest) {
-					XMLHttpR = new XMLHttpRequest();
-				} else if(window.ActiveXObject) {
-					try {
-						XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP");
-					} catch(e) {
-						try {
-							XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP");
-						} catch(e) {}
-					}
-				}
-			}
-
-			function sendRequest(url) {
-				createXMLHttpRequest();
-				XMLHttpR.open("GET", url, true);
-				XMLHttpR.setRequestHeader("Content-Type", "text/html;charset=gb2312");
-				XMLHttpR.onreadystatechange = processResponse;
-				XMLHttpR.send(null);
-			}
-
-			function processResponse() {
-				if(XMLHttpR.readyState == 4 && XMLHttpR.status == 200) {
-
-					document.write(XMLHttpR.responseText);
-				}
-			}
-        var str = location.href;
-        var num = str.indexOf("/p/");
-        str = str.substr(num + 3);
-        if (parseInt(str) > 500000000) {
-          sendRequest("./p/418971438.html"); //优豆云
-        } else {
-          sendRequest("./p/418962396.html"); //三丰云
+  <script>
+    function createXMLHttpRequest() {
+      if (window.XMLHttpRequest) {
+        XMLHttpR = new XMLHttpRequest();
+      } else if (window.ActiveXObject) {
+        try {
+          XMLHttpR = new ActiveXObject("Msxml2.XMLHTTP");
+        } catch(e) {
+          try {
+            XMLHttpR = new ActiveXObject("Microsoft.XMLHTTP");
+          } catch(e) {}
         }
-</script>
-<body>
-</body>
+      }
+    }
+
+    function sendRequest(url) {
+      createXMLHttpRequest();
+      XMLHttpR.open("GET", url, true);
+      XMLHttpR.setRequestHeader("Content-Type", "text/html;charset=gb2312");
+      XMLHttpR.onreadystatechange = processResponse;
+      XMLHttpR.send(null);
+    }
+
+    function processResponse() {
+      if (XMLHttpR.readyState == 4 && XMLHttpR.status == 200) {
+
+        document.write(XMLHttpR.responseText);
+      }
+    }
+    var str = location.href;
+    var num = str.indexOf("/p/");
+    str = str.substr(num + 3);
+    if (parseInt(str) > 500000000) {
+      sendRequest("./p/418971438.html"); //优豆云
+    } else {
+      sendRequest("./p/418962396.html"); //三丰云
+    }
+    </script>
+  
+  <body>
+  </body>
+
 </html>
