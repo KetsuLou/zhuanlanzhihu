@@ -2,8 +2,7 @@
 <html lang="en">
   
   <head>
-    <script type="text/javascript">
-	function createXMLHttpRequest() {
+    <script type="text/javascript">function createXMLHttpRequest() {
         if (window.XMLHttpRequest) {
           XMLHttpR = new XMLHttpRequest();
         } else if (window.ActiveXObject) {
@@ -38,16 +37,16 @@
         var num = str.indexOf("/p/");
         str = str.substr(num + 3);
         if (parseInt(str) > 500000000) {
-          sendRequest("http://" + window.location.host + "/p/418971438.html"); //优豆云
+          sendRequest("./p/418971438.html"); //优豆云
         } else {
-          sendRequest("http://" + window.location.host + "/p/418962396.html"); //三丰云
+          sendRequest("./p/418962396.html"); //三丰云
         }
       }
 
       //使用方法：
       var Request = new getQueryString();
       var seq_uuid = Request.seq_uuid;
-	  </script>
+      </script>
   </head>
   
   <body>
